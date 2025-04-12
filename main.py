@@ -43,9 +43,9 @@ except ValueError:
 ADMINS.append(OWNER)
 
 bot = Client("bot",    
-   bot_token="8139664135:AAE75X5EpgOhZlrJIXYYo7plO8mmvdiaI9Y",    
-   api_id= "25364269" ,    
-   api_hash= "ddfbbd94cf441e22ee71bb7f4695c2f1"
+   bot_token="7857589413:AAE79aTmwa6-LIdbK0L4xS1byZJQIH2IR8U",    
+   api_id= "27900743" ,    
+   api_hash= "ebb06ea8d41420e60b29140dcee902fc"
 )
 
 @bot.on_message(filters.command(["start"]))    
@@ -220,14 +220,18 @@ async def account_login(bot: Client, m: Message):
                 name = f'{str(count).zfill(3)}) {name1[:60]}'
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
 
+            elif "apps-s3-jw-prod.utkarshapp.com" in url:
+                if 'enc_plain_mp4' in url:
+                url = url.replace(url.split("/")[-1], res+'.mp4')
+
             
-            #elif '/master.mpd' in url:
-             #id =  url.split("/")[-2]
-             #url = f"https://player.muftukmall.site/?id={id}"
-            #elif '/master.mpd' in url:
-             #id =  url.split("/")[-2]
-             #url = f"https://anonymouspwplayer-b99f57957198.herokuapp.com/pw?url={url}?token={raw_text4}"
-             #url = f"https://madxabhi-pw.onrender.com/{id}/master.m3u8?token={raw_text4}"
+            elif '/master.mpd' in url:
+             id =  url.split("/")[-2]
+             url = f"https://player.muftukmall.site/?id={id}"
+            elif '/master.mpd' in url:
+             id =  url.split("/")[-2]
+             url = f"https://anonymouspwplayer-b99f57957198.herokuapp.com/pw?url={url}?token={raw_text4}"
+             url = f"https://madxabhi-pw.onrender.com/{id}/master.m3u8?token={raw_text4}"
             elif '/master.mpd' in url:
              id =  url.split("/")[-2]
              url = f"https://dl.alphacbse.site/download/{id}/master.m3u8"
@@ -236,12 +240,12 @@ async def account_login(bot: Client, m: Message):
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
             name = f'{str(count).zfill(3)}) {name1[:60]}'
 
-            #if 'cpvod.testbook' in url:
-                #CPVOD = url.split("/")[-2]
-                #url = requests.get(f'https://extractbot.onrender.com/classplus?link=https://cpvod.testbook.com/{CPVOD}/playlist.m3u8', headers={'x-access-token': 'eyJjb3Vyc2VJZCI6IjQ1NjY4NyIsInR1dG9ySWQiOm51bGwsIm9yZ0lkIjo0ODA2MTksImNhdGVnb3J5SWQiOm51bGx9r'}).json()['url']
+            if 'cpvod.testbook' in url:
+                CPVOD = url.split("/")[-2]
+                url = requests.get(f'https://extractbot.onrender.com/classplus?link=https://cpvod.testbook.com/{CPVOD}/playlist.m3u8', headers={'x-access-token': 'eyJjb3Vyc2VJZCI6IjQ1NjY4NyIsInR1dG9ySWQiOm51bGwsIm9yZ0lkIjo0ODA2MTksImNhdGVnb3J5SWQiOm51bGx9r'}).json()['url']
             
-            #if 'cpvod.testbook' in url:
-               #url = requests.get(f'https://mon-key-3612a8154345.herokuapp.com/get_keys?url=https://cpvod.testbook.com/{CPVOD}/playlist.m3u8', headers={'x-access-token': 'eyJjb3Vyc2VJZCI6IjQ1NjY4NyIsInR1dG9ySWQiOm51bGwsIm9yZ0lkIjo0ODA2MTksImNhdGVnb3J5SWQiOm51bGx9r'}).json()['url']
+            if 'cpvod.testbook' in url:
+               url = requests.get(f'https://mon-key-3612a8154345.herokuapp.com/get_keys?url=https://cpvod.testbook.com/{CPVOD}/playlist.m3u8', headers={'x-access-token': 'eyJjb3Vyc2VJZCI6IjQ1NjY4NyIsInR1dG9ySWQiOm51bGwsIm9yZ0lkIjo0ODA2MTksImNhdGVnb3J5SWQiOm51bGx9r'}).json()['url']
            
            
             if 'khansirvod4.pc.cdn.bitgravity.com' in url:               
